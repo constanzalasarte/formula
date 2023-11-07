@@ -1,0 +1,19 @@
+@startuml
+interface Function {
+
+}
+interface TerminalExpression implements Function {}
+class Variable implements Function {}
+class Literal implements Function {}
+interface NonTerminalExpression implements Function {
+    getRight() : Function
+    getLeft(): Function
+}
+class Sum implements NonTerminalExpression{}
+class Difference implements NonTerminalExpression{}
+class Product implements NonTerminalExpression{}
+class Divide implements NonTerminalExpression{}
+class Equals implements NonTerminalExpression{}
+
+NonTerminalExpression --> Function
+@enduml

@@ -1,3 +1,9 @@
+# To do
+- primero empezar con composite y con todo literal
+- después empeza con variables
+- y por último hace visitor
+
+
 # Ingeniería de Sistemas - Trabajo práctico "Funciones"
 
 ## Introducción
@@ -38,5 +44,5 @@ función, por lo tanto es necesario contar con un mecanismo para obtener todas l
 - Los diagramas deben estar en archivos separados con nombres que permitan identificarlos.
 - Las clases de test que contiene este repositorio describen casos como funciones escritas en una notación moderna. Su
   objetivo es describir el caso a probar, recuerde que no debe parsear ninguna sintaxis, sino generar su modelo
-  programáticamente. 
+  programáticamente.
 

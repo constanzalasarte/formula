@@ -1,0 +1,28 @@
+@startuml
+interface Expression {
+
+}
+class Variable implements Expression {}
+class Literal implements Expression {}
+
+interface Binary {
+    visit(var: Variable) : void
+    visit(var: Variable): void
+}
+class Product implements Binary{
+    visit(var: Variable) : void
+    visit(var: Variable): void
+}
+class Sum implements Binary{
+    visit(var: Variable) : void
+    visit(var: Variable): void
+}
+class Difference implements Binary{
+    visit(var: Variable) : void
+    visit(var: Variable): void
+}
+class Divide implements Binary{
+    visit(var: Variable) : void
+    visit(var: Variable): void
+}
+@enduml

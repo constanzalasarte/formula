@@ -1,8 +1,6 @@
 package edu.austral.ingsis.math
 
 import junit.framework.TestCase.assertEquals
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
 import org.junit.Test
 
 class PrintTest {
@@ -32,7 +30,7 @@ class PrintTest {
      */
     @Test
     fun shouldPrintFunction3() {
-        val expected = "(9 / 2) * 3"
+        val expected = "9 / 2 * 3"
         val function = decomposeExpression.decompose(expected)
         assertEquals(expected, function.getString())
     }
@@ -42,7 +40,7 @@ class PrintTest {
      */
     @Test
     fun shouldPrintFunction4() {
-        val expected = "(27 / 6) ^ 2"
+        val expected = "27 / 6 ^ 2"
         val function = decomposeExpression.decompose(expected)
         assertEquals(expected, function.getString())
     }
@@ -72,7 +70,7 @@ class PrintTest {
      */
     @Test
     fun shouldPrintFunction8() {
-        val expected = "(5 - i) * 8"
+        val expected = "5 - i * 8"
         val function = decomposeExpression.decompose(expected)
         assertEquals(expected, function.getString())
     }

@@ -1,6 +1,6 @@
 package edu.austral.ingsis.math
 
-class Variable(private val reference: String) : Function {
+class Variable(private val reference: String) : TerminalExpression() {
     override fun getString(): String {
         return toString()
     }

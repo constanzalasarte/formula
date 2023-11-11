@@ -1,9 +1,9 @@
 package edu.austral.ingsis.math
 
-class Literal(private val number: Float) : Function {
+class Literal(private val number: Float) : TerminalExpression() {
     override fun getString(): String {
         if(isFloatAnInt(number)) return number.toInt().toString()
-        return toString()
+        return number.toString()
     }
 
     override fun evaluate(): Function {
@@ -19,7 +19,8 @@ class Literal(private val number: Float) : Function {
     }
 
     override fun toString(): String {
-        return number.toString()
+        return getString()
+
     }
 
     private fun isFloatAnInt(floatValue: Float): Boolean {

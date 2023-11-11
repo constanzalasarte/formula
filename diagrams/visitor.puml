@@ -1,28 +1,35 @@
 @startuml
-interface Expression {
+interface Function {
+    accept<T>(Visitor): T
+}
+abstract class TerminalExpression implements Function {}
+class Variable implements TerminalExpression {}
+class Literal implements TerminalExpression {}
+abstract class NonTerminalExpression implements Function {
+    evaluateRight() : Function
+    evaluateLeft(): Function
+}
+class Sum implements NonTerminalExpression{}
+class Difference implements NonTerminalExpression{}
+class Product implements NonTerminalExpression{}
+class Divide implements NonTerminalExpression{}
 
+interface Visitor {
+    visit(var: Sum) : void
+    visit(var: Difference): void
+    visit(var: Product): void
+    visit(var: Divide): void
+    visit(var: Variable): void
+    visit(var: Literal): void
 }
-class Variable implements Expression {}
-class Literal implements Expression {}
+class PrintVisitor implements Visitor{
+}
+class ResolveVisitor implements Visitor{
+}
+class ResolveVisitorWVariables implements Visitor{
+}
+class GetVariablesListVisitor implements Visitor{
+}
 
-interface Binary {
-    visit(var: Variable) : void
-    visit(var: Variable): void
-}
-class Product implements Binary{
-    visit(var: Variable) : void
-    visit(var: Variable): void
-}
-class Sum implements Binary{
-    visit(var: Variable) : void
-    visit(var: Variable): void
-}
-class Difference implements Binary{
-    visit(var: Variable) : void
-    visit(var: Variable): void
-}
-class Divide implements Binary{
-    visit(var: Variable) : void
-    visit(var: Variable): void
-}
+NonTerminalExpression --> Function
 @enduml

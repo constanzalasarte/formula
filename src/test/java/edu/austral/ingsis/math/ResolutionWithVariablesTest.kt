@@ -1,17 +1,19 @@
 package edu.austral.ingsis.math
 
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
+import junit.framework.TestCase
 import org.junit.Test
 
 class ResolutionWithVariablesTest {
+    private val decomposeExpression = DecomposeExpression()
+
     /**
      * Case 1 + x where x = 3
      */
     @Test
     fun shouldResolveFunction1() {
-        val result = 4.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(4.0))
+        val expected = 4.0f
+        val result = decomposeExpression.decompose("1 + x where x = 3").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 
     /**
@@ -19,8 +21,9 @@ class ResolutionWithVariablesTest {
      */
     @Test
     fun shouldResolveFunction2() {
-        val result = 3.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(3.0))
+        val expected = 3.0f
+        val result = decomposeExpression.decompose("12 / div where div = 4").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 
     /**
@@ -28,8 +31,9 @@ class ResolutionWithVariablesTest {
      */
     @Test
     fun shouldResolveFunction3() {
-        val result = 12.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(12.0))
+        val expected = 12.0f
+        val result = decomposeExpression.decompose("(9 / x) * y where x = 3 and y = 4").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 
     /**
@@ -37,8 +41,9 @@ class ResolutionWithVariablesTest {
      */
     @Test
     fun shouldResolveFunction4() {
-        val result = 27.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(27.0))
+        val expected = 27.0f
+        val result = decomposeExpression.decompose("(27 / a) ^ b where a = 9 and b = 3").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 
     /**
@@ -46,8 +51,9 @@ class ResolutionWithVariablesTest {
      */
     @Test
     fun shouldResolveFunction5() {
-        val result = 6.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(6.0))
+        val expected = 6.0f
+        val result = decomposeExpression.decompose("z ^ (1/2) where z = 36").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 
     /**
@@ -55,8 +61,9 @@ class ResolutionWithVariablesTest {
      */
     @Test
     fun shouldResolveFunction6() {
-        val result = 0.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(0.0))
+        val expected = 0.0f
+        val result = decomposeExpression.decompose("|value| - 8 where value = 8").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 
     /**
@@ -64,8 +71,9 @@ class ResolutionWithVariablesTest {
      */
     @Test
     fun shouldResolveFunction7() {
-        val result = 0.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(0.0))
+        val expected = 0.0f
+        val result = decomposeExpression.decompose("|value| - 8 where value = 8").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 
     /**
@@ -73,7 +81,8 @@ class ResolutionWithVariablesTest {
      */
     @Test
     fun shouldResolveFunction8() {
-        val result = 24.0
-        MatcherAssert.assertThat(result, CoreMatchers.equalTo(24.0))
+        val expected = 24.0f
+        val result = decomposeExpression.decompose("(5 - i) * 8 where i = 2").evaluate()
+        TestCase.assertEquals(expected, result.toString().toFloat())
     }
 }

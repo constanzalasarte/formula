@@ -11,7 +11,8 @@ class Difference(left: Function, right: Function): NoTerminalExpression(left, ri
     }
 
     override fun getString(): String {
-        return "$left-$right"
+        return "$left - $right"
+
     }
 
     override fun toString(): String {

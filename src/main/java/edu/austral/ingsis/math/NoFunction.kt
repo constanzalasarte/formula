@@ -1,6 +1,6 @@
 package edu.austral.ingsis.math
 
-class NoFunction: TerminalExpression() {
+class NoFunction: Function {
     override fun getString(): String {
         return ""
     }

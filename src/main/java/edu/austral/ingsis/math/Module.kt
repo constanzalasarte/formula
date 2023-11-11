@@ -1,25 +1,30 @@
 package edu.austral.ingsis.math
 
-import java.lang.Module
 import kotlin.math.abs
 
 class Module(left: Function, right: Function) : NoTerminalExpression(left, right){
     override fun getString(): String {
-        if(left is NoFunction) return "|$left|"
-        else if (right is NoFunction) return "|$right|"
-        return "|$left$right|"
+        if(right is NoFunction && left is TerminalExpression) return "|$left|"
+        else if (left is NoFunction && right is TerminalExpression) return "|$right|"
+        return Module(evaluateRight(), evaluateLeft()).getStringWithOut()
     }
 
     override fun evaluate(): Function {
-        if(right is Literal && left is Literal){
+        if(right is NoFunction && left is Literal){
             return Literal(abs((left as Literal).getNumber()))
         }
+        else if(left is NoFunction && right is Literal){
+            return Literal(abs((right as Literal).getNumber()))
+        }
         return Module(evaluateRight(), evaluateLeft()).evaluate()
-        return this
         // TODO: MAKE IT WITH VARIABLES
     }
     override fun toString(): String {
         return getString()
     }
-
+    private fun getStringWithOut(): String {
+        if(right is NoFunction) return "$left"
+        else if (left is NoFunction) return "$right"
+        return Module(evaluateRight(), evaluateLeft()).getStringWithOut()
+    }
 }

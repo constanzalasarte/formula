@@ -11,7 +11,7 @@ class Sum(left: Function, right: Function) : NoTerminalExpression(left, right) {
     }
 
     override fun getString(): String {
-        return "$left+$right"
+        return "$left + $right"
     }
 
     override fun toString(): String {

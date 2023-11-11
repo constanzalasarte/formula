@@ -2,12 +2,13 @@
 interface Function {
 
 }
-interface TerminalExpression implements Function {}
-class Variable implements Function {}
-class Literal implements Function {}
-interface NonTerminalExpression implements Function {
-    getRight() : Function
-    getLeft(): Function
+abstract class TerminalExpression implements Function {}
+class Variable implements TerminalExpression {}
+class Literal implements TerminalExpression {}
+abstract class NonTerminalExpression implements Function {
+    evaluateRight() : Function
+    evaluateLeft(): Function
+    getVariablesList(): List<String>
 }
 class Sum implements NonTerminalExpression{}
 class Difference implements NonTerminalExpression{}

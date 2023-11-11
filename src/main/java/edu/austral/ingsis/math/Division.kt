@@ -2,7 +2,7 @@ package edu.austral.ingsis.math
 
 class Division(left: Function, right: Function): NoTerminalExpression(left, right) {
     override fun getString(): String {
-        return "$left/$right"
+        return "$left / $right"
     }
 
     override fun evaluate(): Function {
@@ -10,8 +10,6 @@ class Division(left: Function, right: Function): NoTerminalExpression(left, righ
             return Literal((left as Literal).getNumber() / (right as Literal).getNumber())
         }
         return Division(evaluateRight(), evaluateLeft()).evaluate()
-        return this
-        // TODO: MAKE IT WITH VARIABLES
     }
 
     override fun toString(): String {

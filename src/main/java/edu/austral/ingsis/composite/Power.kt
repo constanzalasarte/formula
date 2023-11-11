@@ -1,4 +1,4 @@
-package edu.austral.ingsis.math
+package edu.austral.ingsis.composite
 
 import kotlin.math.pow
 

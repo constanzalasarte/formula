@@ -1,4 +1,4 @@
-package edu.austral.ingsis.math
+package edu.austral.ingsis.composite
 
 class Literal(private val number: Float) : TerminalExpression() {
     override fun getString(): String {

@@ -1,4 +1,4 @@
-package edu.austral.ingsis.math
+package edu.austral.ingsis.composite
 
 class Variable(private val reference: String) : TerminalExpression() {
     override fun getString(): String {

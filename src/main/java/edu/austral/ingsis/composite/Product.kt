@@ -1,4 +1,4 @@
-package edu.austral.ingsis.math
+package edu.austral.ingsis.composite
 
 class Product(left: Function, right: Function): NoTerminalExpression(left, right) {
     override fun getString(): String {

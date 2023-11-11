@@ -1,4 +1,4 @@
-package edu.austral.ingsis.math
+package edu.austral.ingsis.composite
 
 class Sum(left: Function, right: Function) : NoTerminalExpression(left, right) {
 

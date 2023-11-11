@@ -26,8 +26,6 @@ class PrintVisitor implements Visitor{
 }
 class ResolveVisitor implements Visitor{
 }
-class ResolveVisitorWVariables implements Visitor{
-}
 class GetVariablesListVisitor implements Visitor{
 }
 

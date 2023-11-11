@@ -1,4 +1,4 @@
-package edu.austral.ingsis.math
+package edu.austral.ingsis.composite
 
 abstract class NoTerminalExpression(var left: Function, var right: Function) : Function{
     private val integerChars = '0'..'9'

@@ -1,9 +1,6 @@
-package edu.austral.ingsis.math
+package edu.austral.ingsis.composite
 
-import junit.framework.TestCase
 import junit.framework.TestCase.assertEquals
-import org.hamcrest.MatcherAssert
-import org.hamcrest.Matchers
 import org.junit.Test
 
 class ListVariablesTest {

@@ -5,6 +5,7 @@ import kotlin.math.abs
 import kotlin.math.pow
 
 class ResolveVisitor: Visitor<Float> {
+    private var map: Map<Variable, Literal> = kotlin.collections.emptyMap()
     override fun visit(sum: Sum): Float {
         return sum.left.accept(this) + sum.right.accept(this)
     }
@@ -32,10 +33,20 @@ class ResolveVisitor: Visitor<Float> {
     }
 
     override fun visit(variable: Variable): Float {
+        for ((key, value) in map){
+            if( key.reference == variable.reference) return value.accept(this)
+        }
         return 1.0f
     }
 
     override fun visit(literal: Literal): Float {
         return literal.number
+    }
+
+    fun withMap(newMap: Map<Variable, Literal>) {
+        map = newMap
+    }
+    fun emptyMap(){
+        map = kotlin.collections.emptyMap()
     }
 }
